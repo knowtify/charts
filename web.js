@@ -13,12 +13,10 @@ var charts;
 
 
 app.use(logfmt.requestLogger());
-
 app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
     req.charts = db.collection('charts');
-    req.passport = passport;
     req.unauthorized = unauthorizedPath;
     next();
 });
@@ -37,7 +35,9 @@ app.use(function (err, req, res, next) {
 
 /* Routes */
 app.get('/', screens.home);
-app.get('/pie', charts.pie);
+app.get('/bar', charts.bar);
+app.get('/line', charts.line);
+
 
 
 mongo.Db.connect(mongoUri, function (err, database) {
