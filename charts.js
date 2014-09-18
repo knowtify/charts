@@ -6,6 +6,7 @@ var md5 = require('MD5');
 
 var AWS = require('aws-sdk');
 AWS.config.loadFromPath('./aws.json');
+//test
 //var bucketName="knowtify-charts-andrea";
 //var bucketPublicUrl="http://knowtify-charts-andrea.s3-website-us-east-1.amazonaws.com/";
 var bucketName="knowtify-charts";
