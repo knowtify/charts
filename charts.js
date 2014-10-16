@@ -113,7 +113,7 @@ createChart = function (req, res,chart) {
                             var chartDBData={
                                 hash:hash,
                                 "filename":filename,
-                                url:bucketPublicUrl+filename,
+                                url:'https://s3.amazonaws.com/knowtify-charts/'+filename,
                                 chartData:chart.chartData,
                                 updated:new Date()
                             };
