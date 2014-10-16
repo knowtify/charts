@@ -38,7 +38,7 @@ app.get('/', screens.home);
 app.get('/bar', charts.bar);
 app.get('/line', charts.line);
 app.post('/line', function(req, res){
-    charts.line(req);
+    charts.line;
 });
 
 
