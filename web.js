@@ -53,7 +53,7 @@ app.get('/bar', charts.bar);
 app.get('/line', charts.line);
 //app.post('/line', charts.line);
 app.post('/line', jsonParser, function(req, res){
-    console.log('REQ',req);
+    console.log('REQ',req.body);
     charts.line(req,res);
 });
 
