@@ -31,15 +31,18 @@ exports.line = function (req, res) {
     var json = req.body;
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
+    var fileName = json.fileName;
+    console.log(customData,fileName);
     var chartType="line";
     var chart = {
         chartData:{
             data:customData,
-            type:chartType
+            type:chartType,
+            fileName:fileName
         }
     };
     req.chart=chart;
-    knowtifyChart(req,res);
+    makeChart(req,res);
 };
 
 exports.bar = function (req, res) {
@@ -65,7 +68,7 @@ knowtifyChart = function (req, res) {
            if (chart!=null)
            {
                 //res.redirect(chart.url);
-                res.json({ chart_url: chart.url })
+                res.json({ chartUrl: chart.url })
            }else
            {
                createChart(req,res,req.chart);
@@ -77,16 +80,25 @@ knowtifyChart = function (req, res) {
     }
 };
 
+makeChart = function (req, res) {
+    if (req.chart!=null)
+        createChart(req,res,req.chart);
+    else{
+        res.error("no chart");
+    }
+};
+
 
 createChart = function (req, res,chart) {
     var customData=chart.chartData.data;
     var chartType=chart.chartData.type;
+    var filename=chart.chartData.fileName+'.png';
 
-    var hash=chartMD5(chart);
+    //var hash=chartMD5(chart);
 
     //todo: put file in user folders and divide them by date/day/first letter of the file to avoid speed issues
 
-    var filename=hash+'.png';
+    //var filename=hash+'.png';
 
     phPage.open("./d3/d3shell.html", function (status) {
         phPage.evaluate(function (custom,cType) {
@@ -117,9 +129,9 @@ createChart = function (req, res,chart) {
                                 chartData:chart.chartData,
                                 updated:new Date()
                             };
-                            req.charts.insert(chartDBData,function(e,o){});
+                            //req.charts.insert(chartDBData,function(e,o){});
                             //res.redirect(chartDBData.url);
-                            res.json({ chart_url: chartDBData.url });
+                            res.json({ chartUrl: 'https://s3.amazonaws.com/knowtify-charts/'+filename });
                             console.log("Successfully uploaded file " + filename);
                         }
                     });
