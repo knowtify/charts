@@ -31,14 +31,14 @@ exports.line = function (req, res) {
     var json = req.body;
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
-    var fileName = json.fileName;
-    console.log(customData,fileName);
+    var filename = json.filename;
+    console.log(customData,filename);
     var chartType="line";
     var chart = {
         chartData:{
             data:customData,
             type:chartType,
-            filename:fileName
+            filename:filename
         }
     };
     req.chart=chart;
