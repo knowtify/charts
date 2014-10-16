@@ -122,13 +122,15 @@ createChart = function (req, res,chart) {
                             res.error("error producing image");
                             console.log("Error uploading data: ", err);
                         } else {
+                            /*
                             var chartDBData={
-                                hash:hash,
+                                //hash:hash,
                                 "filename":filename,
                                 url:'https://s3.amazonaws.com/knowtify-charts/'+filename,
                                 chartData:chart.chartData,
                                 updated:new Date()
                             };
+                            */
                             //req.charts.insert(chartDBData,function(e,o){});
                             //res.redirect(chartDBData.url);
                             res.json({ chartUrl: 'https://s3.amazonaws.com/knowtify-charts/'+filename });
