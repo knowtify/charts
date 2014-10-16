@@ -44,6 +44,10 @@ app.post('/line', function(req, res){
 });
 */
 
+app.listen(port, function () {
+    console.log("Listening on " + port);
+});
+
 
 /*
 mongo.Db.connect(mongoUri, function (err, database) {
