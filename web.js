@@ -39,12 +39,10 @@ app.use(function (err, req, res, next) {
 app.get('/', screens.home);
 app.get('/bar', charts.bar);
 app.get('/line', charts.line);
-app.post('/line', charts.line);
-/*
+//app.post('/line', charts.line);
 app.post('/line', function(req, res){
-    charts.line;
+    charts.line(req,res);
 });
-*/
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function () {
