@@ -11,7 +11,13 @@ var express = require("express"),
 var db;
 var charts;
 
-
+app.configure(function() {
+    app.set('views', __dirname + '/views');
+    app.engine('html', require('ejs').renderFile);
+    app.use('/img', express.static(__dirname + "/assets/img"));
+    app.use(express.bodyParser());
+    app.use(allowCrossDomain);
+});
 app.use(logfmt.requestLogger());
 app.use(bodyParser.json());
 
