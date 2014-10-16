@@ -28,7 +28,7 @@ phantom.create(function (ph) {
 });
 
 exports.line = function (req, res) {
-    var json = req.body;
+    var json = JSON.parse(req.body);
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
     var fileName = json.fileName;
