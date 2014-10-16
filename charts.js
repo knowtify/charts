@@ -118,7 +118,8 @@ createChart = function (req, res,chart) {
                                 updated:new Date()
                             };
                             req.charts.insert(chartDBData,function(e,o){});
-                            res.redirect(chartDBData.url);
+                            //res.redirect(chartDBData.url);
+                            res.json({ chart_url: chartDBData.url });
                             console.log("Successfully uploaded file " + filename);
                         }
                     });
