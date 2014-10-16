@@ -28,7 +28,9 @@ phantom.create(function (ph) {
 });
 
 exports.line = function (req, res) {
-    var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
+    var json = req.body;
+    //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
+    var customData = json.line;
     var chartType="line";
     var chart = {
         chartData:{
@@ -38,7 +40,6 @@ exports.line = function (req, res) {
     };
     req.chart=chart;
     knowtifyChart(req,res);
-
 };
 
 exports.bar = function (req, res) {
@@ -63,7 +64,8 @@ knowtifyChart = function (req, res) {
         req.charts.findOne({"hash":chartHash},function(err,chart){
            if (chart!=null)
            {
-                res.redirect(chart.url);
+                //res.redirect(chart.url);
+                res.json({ chart_url: chart.url })
            }else
            {
                createChart(req,res,req.chart);
