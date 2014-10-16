@@ -32,7 +32,7 @@ exports.line = function (req, res) {
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
     var filename = json.filename;
-    console.log(req.body);
+    console.log(req);
     console.log(customData,filename);
     var chartType="line";
     var chart = {
