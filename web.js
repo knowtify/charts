@@ -41,6 +41,7 @@ app.get('/bar', charts.bar);
 app.get('/line', charts.line);
 //app.post('/line', charts.line);
 app.post('/line', function(req, res){
+    console.log('REQ',req);
     charts.line(req,res);
 });
 
