@@ -15,11 +15,13 @@ var charts;
 app.use(logfmt.requestLogger());
 app.use(bodyParser.json());
 
+/*
 app.use(function (req, res, next) {
     req.charts = db.collection('charts');
     req.unauthorized = unauthorizedPath;
     next();
 });
+*/
 app.use(function (err, req, res, next) {
     if (err != null) {
         //TODO: improve error handling
