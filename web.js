@@ -16,9 +16,8 @@ app.configure(function() {
     app.engine('html', require('ejs').renderFile);
     app.use('/img', express.static(__dirname + "/assets/img"));
     app.use(express.bodyParser());
-    app.use(allowCrossDomain);
     app.use(logfmt.requestLogger());
-    app.use(bodyParser.json());
+    //app.use(bodyParser.json());
 });
 
 /*
