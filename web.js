@@ -42,7 +42,7 @@ app.post('/line', function(req, res){
 });
 
 
-
+/*
 mongo.Db.connect(mongoUri, function (err, database) {
     if (err) throw err;
 
@@ -54,3 +54,4 @@ mongo.Db.connect(mongoUri, function (err, database) {
         console.log("Listening on " + port);
     });
 });
+*/
