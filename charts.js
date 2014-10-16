@@ -28,7 +28,7 @@ phantom.create(function (ph) {
 });
 
 exports.line = function (req, res) {
-    var json = JSON.parse(req.body);
+    var json = req.body;
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
     var fileName = json.fileName;
@@ -38,7 +38,7 @@ exports.line = function (req, res) {
         chartData:{
             data:customData,
             type:chartType,
-            fileName:fileName
+            filename:fileName
         }
     };
     req.chart=chart;
@@ -89,10 +89,10 @@ makeChart = function (req, res) {
 };
 
 
-createChart = function (req, res,chart) {
+createChart = function (req,res,chart) {
     var customData=chart.chartData.data;
     var chartType=chart.chartData.type;
-    var filename=chart.chartData.fileName+'.png';
+    var filename=chart.chartData.filename+'.png';
 
     //var hash=chartMD5(chart);
 
