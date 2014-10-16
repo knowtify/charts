@@ -22,7 +22,7 @@ app.configure(function() {
 });
 */
 
-app.use(express.bodyParser());
+//app.use(express.bodyParser());
 app.use(logfmt.requestLogger());
 app.use(bodyParser.json());
 
