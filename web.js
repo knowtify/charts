@@ -22,9 +22,10 @@ app.configure(function() {
 });
 */
 
-app.use(express.bodyParser());
-app.use(logfmt.requestLogger());
-app.use(bodyParser.json());
+//app.use(logfmt.requestLogger());
+//app.use(bodyParser.json());
+
+var jsonParser = bodyParser.json()
 
 /*
 app.use(function (req, res, next) {
@@ -51,7 +52,7 @@ app.get('/', screens.home);
 app.get('/bar', charts.bar);
 app.get('/line', charts.line);
 //app.post('/line', charts.line);
-app.post('/line', function(req, res){
+app.post('/line', jsonParser, function(req, res){
     console.log('REQ',req);
     charts.line(req,res);
 });
