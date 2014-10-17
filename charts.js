@@ -32,7 +32,7 @@ exports.line = function (req, res) {
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
     var filename = json.filename;
-    var show_y_axis = (typeof json.show_y != 'undefined' && json.show_y == true) ? true : false;
+    var show_y_axis = (typeof json.show_y_axis != 'undefined' && json.show_y_axis == true) ? true : false;
     var x_axis_labels = (typeof json.x_axis_labels != 'undefined') ? json.x_axis_labels : '[]';
     var chartType="line";
     var chart = {
