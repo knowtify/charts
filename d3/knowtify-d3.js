@@ -12,7 +12,7 @@ function line(params,yData)
 
     // X scale will fit all values from data[] within pixels 0-w
     //var x = d3.scale.linear().domain([0, params.data.length]).range([0, w]);
-    var x_scale = [params.x_axis_from,params.x_axis_to];
+    var x_axis_label = [params.x_axis_from,params.x_axis_to];
     /*
     for (var i=0;i<(params.data.length-2);i++){
         x_scale.push('');
@@ -20,7 +20,7 @@ function line(params,yData)
     x_scale.push(params.x_axis_to)
     */
 
-    var x = d3.scale.ordinal().domain(x_scale).range([0, w]);
+    var x = d3.scale.ordinal().domain(x_axis_label).range([0, w]);
     // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
     var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
     // automatically determining max range can work something like this
