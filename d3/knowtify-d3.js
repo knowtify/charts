@@ -75,7 +75,7 @@ function line(params,yData)
     // Add the x-axis.
     graph.append("svg:g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + h + ")")
+        .attr("transform", "translate("+m[0]+"," + h+m[3] + ")")
         .call(xAxis);
 
 
@@ -85,7 +85,7 @@ function line(params,yData)
         // Add the y-axis to the left
         graph.append("svg:g")
             .attr("class", "y axis")
-            .attr("transform", "translate(80,80)")
+            .attr("transform", "translate("+m[0]+","+m[3]+")")
             .call(yAxisLeft);
     }
 
