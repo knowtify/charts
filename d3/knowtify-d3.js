@@ -58,7 +58,7 @@ function line(params,yData)
     var xScale = d3.scale.ordinal().domain(params.x_axis_labels).range([0, (w/params.x_axis_labels.length)]);
     var xAxis = d3.svg.axis()
         .scale(xScale)
-        .ticks(params.x_axis_labels.length-2);
+        .ticks(params.x_axis_labels.length);
     // Add the x-axis.
     graph.append("svg:g")
         .attr("class", "x axis")
@@ -68,7 +68,7 @@ function line(params,yData)
 
     if(params.show_y_axis){
         // create left yAxis
-        var yAxisLeft = d3.svg.axis().scale(y).ticks(3).orient("left");
+        var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
         // Add the y-axis to the left
         graph.append("svg:g")
             .attr("class", "y axis")
