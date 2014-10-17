@@ -36,7 +36,7 @@ function line(params,yData)
 
     // create a line function that can convert data[] into x and y points
     var line = d3.svg.line()
-        // assign the X function to plot our line as we wish
+        .interpolate("basis")
         .x(function(d,i) {
             return x(i);
         })
@@ -83,7 +83,6 @@ function line(params,yData)
     // Add the line by appending an svg:path element with the data line we created above
     // do this AFTER the axes above so that the line is above the tick-lines
     graph.append("svg:path")
-        .interpolate("basis")
         .attr("d", line(params.data))
         .attr("fill","none")
         .attr("stroke-width",3)
