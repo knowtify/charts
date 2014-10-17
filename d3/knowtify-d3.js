@@ -57,7 +57,7 @@ function line(params,yData)
 
     var xRange = [];
     for(var i=0;i<params.x_axis_labels.length;i++){
-        xRange.push(i*w/params.x_axis_labels.length);
+        xRange.push(i*w/params.x_axis_labels.length + 80);
     }
 
     var xScale = d3.scale.ordinal().domain(params.x_axis_labels).range(xRange);
