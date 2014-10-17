@@ -20,9 +20,17 @@ function line(params,yData)
     x_scale.push(params.x_axis_to)
     */
     //var x = d3.scale.ordinal().domain(x_axis_label).range([0, w]);
+
+    var max_y = 0;
+    for(var i=0;i<params.data.length;i++){
+        var y_val = params.data.length[i];
+        if(y_val > max_y){
+            max_y = y_val;
+        }
+    }
     
     // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-    var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
+    var y = d3.scale.linear().domain([0, max_y]).range([h, 0]);
     // automatically determining max range can work something like this
     // var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
 
