@@ -45,15 +45,20 @@ function line(params,yData)
 
     // create xAxis
 
-    var x_axis_label = [params.x_axis_from,params.x_axis_to];
+    var xScale = d3.scale.ordinal();
+    xScale.domain([params.x_axis_from,params.x_axis_to])
+        .range([0, w]);
+    //var x_axis_label = [params.x_axis_from,params.x_axis_to];
     /*
     for (var i=0;i<(params.data.length-2);i++){
         x_scale.push('');
     }
     x_scale.push(params.x_axis_to)
     */
-    var xAxis = d3.scale.ordinal().domain(x_axis_label).range([0, w]).tickSize(-h).tickSubdivide(true);
+    //var xAxis = d3.scale.ordinal().domain(x_axis_label).range([0, w]).tickSize(-h).tickSubdivide(true);
     //var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+    var xAxis = d3.svg.axis()
+        .scale(xScale);
     // Add the x-axis.
     graph.append("svg:g")
         .attr("class", "x axis")
