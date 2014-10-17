@@ -55,10 +55,10 @@ function line(params,yData)
     //var xAxis = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
     //var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
 
-    var xScale = d3.scale.ordinal().domain(params.x_axis_labels).range([0, (w/params.x_axis_labels.length)]);
+    var xScale = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
     var xAxis = d3.svg.axis()
         .scale(xScale)
-        .ticks(params.x_axis_labels.length);
+        .tickSubdivide(true);
     // Add the x-axis.
     graph.append("svg:g")
         .attr("class", "x axis")
