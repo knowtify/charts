@@ -32,9 +32,7 @@ exports.line = function (req, res) {
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
     var filename = json.filename;
-    console.log(json);
     var show_y = (typeof json.show_y != 'undefined' && json.show_y == true) ? true : false;
-    console.log("SHOW_Y",show_y)
     var chartType="line";
     var chart = {
         chartData:{
@@ -98,6 +96,7 @@ createChart = function (req,res,chart) {
     var params = {
         width:chart.chartData.width,
         height:chart.chartData.height,
+        show_y:chart.chartData.show_y,
         data:chart.chartData.data
     }
     var customData=chart.chartData.data;
