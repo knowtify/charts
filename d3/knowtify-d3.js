@@ -36,7 +36,6 @@ function line(params,yData)
 
     // create a line function that can convert data[] into x and y points
     var line = d3.svg.line()
-        .interpolate("basis")
         .x(function(d,i) {
             return x(i);
         })
