@@ -84,6 +84,7 @@ function line(params,yData)
     // do this AFTER the axes above so that the line is above the tick-lines
     graph.append("svg:path")
         .attr("d", line(params.data))
+        .attr("fill","none")
         .attr("stroke-width",3)
         .attr("stroke","red");
 
