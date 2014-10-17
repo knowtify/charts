@@ -23,7 +23,7 @@ function line(params,yData)
 
     var max_y = 0;
     for(var i=0;i<params.data.length;i++){
-        var y_val = params.data.length[i];
+        var y_val = params.data[i];
         if(y_val > max_y){
             max_y = y_val;
         }
@@ -55,7 +55,7 @@ function line(params,yData)
     //var xAxis = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
     //var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
 
-    var xScale = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
+    var xScale = d3.scale.ordinal().domain(params.x_axis_labels).range([0, (w/params.x_axis_labels.length)]);
     var xAxis = d3.svg.axis()
         .scale(xScale);
     // Add the x-axis.
