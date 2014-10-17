@@ -49,13 +49,14 @@ function line(params,yData)
     for (var i=0;i<(params.data.length-2);i++){
         x_axis_label.push('');
     }
-    x_axis_label.push(params.x_axis_to)
+    x_axis_label.push(params.x_axis_to);
+    console.log('Phantom',x_axis_label);
 
     //var xAxis = d3.scale.ordinal().domain(x_axis_label).range([0, w]).tickSize(-h).tickSubdivide(true);
     //var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
     var xScale = d3.scale.ordinal().domain(x_axis_label).range([0, w]);
     var xAxis = d3.svg.axis()
-        .scale(xScale).tickSize(-h).tickSubdivide(true);
+        .scale(xScale);
     // Add the x-axis.
     graph.append("svg:g")
         .attr("class", "x axis")
