@@ -54,6 +54,7 @@ function line(params,yData)
     graph.append("rect")
         .attr("width", "100%")
         .attr("height", "100%")
+        .attr("transform", "translate(0,0)");
         .attr("fill", "#f2f2f2");
 
     // create xAxis
