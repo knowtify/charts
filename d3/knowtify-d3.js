@@ -8,8 +8,8 @@ function line(params,yData)
     var h = params.height - m[0] - m[2]; // height
 
     d3.select("#chart").append("rect")
-        .attr("width", params.width)
-        .attr("height", params.height)
+        .attr("width", w + m[1] + m[3])
+        .attr("height", h + m[0] + m[2])
         .attr("transform", "translate(0,0)")
         .attr("fill", "#f2f2f2");
 
