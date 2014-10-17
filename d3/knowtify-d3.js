@@ -7,6 +7,12 @@ function line(params,yData)
     var w = params.width - m[1] - m[3]; // width
     var h = params.height - m[0] - m[2]; // height
 
+    d3.select("#chart").append("rect")
+        .attr("width", params.width)
+        .attr("height", params.height)
+        .attr("transform", "translate(0,0)")
+        .attr("fill", "#f2f2f2");
+
     // create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
     //var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
@@ -50,12 +56,6 @@ function line(params,yData)
         .attr("height", h + m[0] + m[2])
         .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
-
-    graph.append("rect")
-        .attr("width", "100%")
-        .attr("height", "100%")
-        .attr("transform", "translate(0,0)")
-        .attr("fill", "#f2f2f2");
 
     // create xAxis
     //var xAxis = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
