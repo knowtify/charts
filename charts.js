@@ -35,6 +35,8 @@ exports.line = function (req, res) {
     var chartType="line";
     var chart = {
         chartData:{
+            width:json.width,
+            height:json.height,
             data:customData,
             type:chartType,
             filename:filename
@@ -90,8 +92,8 @@ makeChart = function (req, res) {
 
 createChart = function (req,res,chart) {
     var params = {
-        width:800,
-        height:200,
+        width:chart.chartData.width,
+        height:chart.chartData.height,
         data:chart.chartData.data
     }
     var customData=chart.chartData.data;
