@@ -89,6 +89,11 @@ makeChart = function (req, res) {
 
 
 createChart = function (req,res,chart) {
+    var params = {
+        width:800,
+        height:200,
+        data:chart.chartData.data
+    }
     var customData=chart.chartData.data;
     var chartType=chart.chartData.type;
     var filename=chart.chartData.filename+'.png';
@@ -100,15 +105,15 @@ createChart = function (req,res,chart) {
     //var filename=hash+'.png';
 
     phPage.open("./d3/d3shell.html", function (status) {
-        phPage.evaluate(function (custom,cType) {
+        phPage.evaluate(function (params,cType) {
 
 
             if (cType=='line')
-                line(custom);
+                line(params);
             else if (cType=='radial')
-                radial(custom);
+                radial(params);
             else if (cType=='bar')
-                bar(custom);
+                bar(params);
             return document.querySelector("#chart").getBoundingClientRect();
 
         }, function (result) {
@@ -140,7 +145,7 @@ createChart = function (req,res,chart) {
 
 
             });
-        },customData,chartType);
+        },params,chartType);
 
     });
 

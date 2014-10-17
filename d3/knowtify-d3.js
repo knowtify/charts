@@ -1,11 +1,11 @@
-function line(data,yData)
+function line(params,yData)
 {
     /* implementation heavily influenced by http://bl.ocks.org/1166403 */
 
     // define dimensions of graph
     var m = [80, 80, 80, 80]; // margins
-    var w = 500 - m[1] - m[3]; // width
-    var h = 500 - m[0] - m[2]; // height
+    var w = params.width - m[1] - m[3]; // width
+    var h = params.height - m[0] - m[2]; // height
 
     // create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
     //var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
@@ -53,7 +53,7 @@ function line(data,yData)
 
     // Add the line by appending an svg:path element with the data line we created above
     // do this AFTER the axes above so that the line is above the tick-lines
-    graph.append("svg:path").attr("d", line(data));
+    graph.append("svg:path").attr("d", line(params.data));
 
 
 }
