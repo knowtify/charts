@@ -55,8 +55,10 @@ function line(params,yData)
         .attr("transform", "translate(0,0)")
         .attr("fill", "#f2f2f2");
         
+    /*
     graph.append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+    */
 
     // create xAxis
     //var xAxis = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
