@@ -34,6 +34,7 @@ exports.line = function (req, res) {
     var filename = json.filename;
     console.log(json);
     var show_y = (typeof json.show_y != 'undefined' && json.show_y == true) ? true : false;
+    console.log("SHOW_Y",show_y)
     var chartType="line";
     var chart = {
         chartData:{
