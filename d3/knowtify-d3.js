@@ -83,6 +83,7 @@ function line(params,yData)
     // Add the line by appending an svg:path element with the data line we created above
     // do this AFTER the axes above so that the line is above the tick-lines
     graph.append("svg:path")
+        .interpolate("basis")
         .attr("d", line(params.data))
         .attr("fill","none")
         .attr("stroke-width",3)
