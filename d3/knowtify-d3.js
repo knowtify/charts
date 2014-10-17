@@ -48,6 +48,7 @@ function line(params,yData)
     var graph = d3.select("#chart").append("svg:svg")
         .attr("width", w + m[1] + m[3])
         .attr("height", h + m[0] + m[2])
+        .attr("fill","#ccc")
         .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
