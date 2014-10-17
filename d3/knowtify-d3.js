@@ -11,16 +11,16 @@ function line(params,yData)
     //var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
     // X scale will fit all values from data[] within pixels 0-w
-    //var x = d3.scale.linear().domain([0, params.data.length]).range([0, w]);
-    var x_axis_label = [params.x_axis_from,params.x_axis_to];
+    var x = d3.scale.linear().domain([0, params.data.length]).range([0, w]);
+    //var x_axis_label = [params.x_axis_from,params.x_axis_to];
     /*
     for (var i=0;i<(params.data.length-2);i++){
         x_scale.push('');
     }
     x_scale.push(params.x_axis_to)
     */
-
-    var x = d3.scale.ordinal().domain(x_axis_label).range([0, w]);
+    //var x = d3.scale.ordinal().domain(x_axis_label).range([0, w]);
+    
     // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
     var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
     // automatically determining max range can work something like this
@@ -43,8 +43,17 @@ function line(params,yData)
         .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-    // create yAxis
-    var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+    // create xAxis
+
+    var x_axis_label = [params.x_axis_from,params.x_axis_to];
+    /*
+    for (var i=0;i<(params.data.length-2);i++){
+        x_scale.push('');
+    }
+    x_scale.push(params.x_axis_to)
+    */
+    var xAxis = d3.scale.ordinal().domain(x_axis_label).range([0, w]).tickSize(-h).tickSubdivide(true);
+    //var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
     // Add the x-axis.
     graph.append("svg:g")
         .attr("class", "x axis")
