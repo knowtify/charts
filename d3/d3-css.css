@@ -1,9 +1,11 @@
 /* tell the SVG path to be a thin blue line without any area fill */
+/*
 path {
     stroke: steelblue;
     stroke-width: 1;
     fill: none;
 }
+*/
 
 .axis {
     shape-rendering: crispEdges;
