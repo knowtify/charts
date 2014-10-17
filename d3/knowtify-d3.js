@@ -16,7 +16,7 @@ function line(params,yData)
     for (var i=0;i<(params.data.length-2);i++){
         x_scale.push('');
     }
-    x_scale.push(x_axis_to)
+    x_scale.push(params.x_axis_to)
 
     var x = d3.scale.ordinal().domain(x_scale).range(.range([0, w]);
     // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
