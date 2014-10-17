@@ -43,13 +43,15 @@ function line(params,yData)
         .call(xAxis);
 
 
-    // create left yAxis
-    var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
-    // Add the y-axis to the left
-    graph.append("svg:g")
-        .attr("class", "y axis")
-        .attr("transform", "translate(-25,0)")
-        .call(yAxisLeft);
+    if(params.show_y){
+        // create left yAxis
+        var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+        // Add the y-axis to the left
+        graph.append("svg:g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(-25,0)")
+            .call(yAxisLeft);
+    }
 
     // Add the line by appending an svg:path element with the data line we created above
     // do this AFTER the axes above so that the line is above the tick-lines
