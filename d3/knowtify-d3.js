@@ -38,7 +38,7 @@ function line(params,yData)
     var line = d3.svg.line()
         .interpolate("cardinal")
         .x(function(d,i) {
-            return x(i+1);
+            return x(i);
         })
         .y(function(d) {
             return y(d);
