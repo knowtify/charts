@@ -32,13 +32,17 @@ exports.line = function (req, res) {
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
     var filename = json.filename;
-    var show_y = (typeof json.show_y != 'undefined' && json.show_y == true) ? true : false;
+    var show_y_axis = (typeof json.show_y != 'undefined' && json.show_y == true) ? true : false;
+    var x_axis_from = (typeof json.x_axis_from != 'undefined') ? x_axis_from : '';
+    var x_axis_to = (typeof json.x_axis_to != 'undefined') ? x_axis_to : '';
     var chartType="line";
     var chart = {
         chartData:{
             width:json.width,
             height:json.height,
-            show_y:show_y,
+            show_y_axis:show_y_axis,
+            x_axis_from:x_axis_from,
+            x_axis_to:x_axis_to,
             data:customData,
             type:chartType,
             filename:filename
@@ -96,7 +100,9 @@ createChart = function (req,res,chart) {
     var params = {
         width:chart.chartData.width,
         height:chart.chartData.height,
-        show_y:chart.chartData.show_y,
+        show_y_axis:chart.chartData.show_y_axis,
+        x_axis_from:chart.chartData.x_axis_from,
+        x_axis_to:chart.chartData.x_axis_to,
         data:chart.chartData.data
     }
     var customData=chart.chartData.data;

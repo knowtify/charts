@@ -11,7 +11,14 @@ function line(params,yData)
     //var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
     // X scale will fit all values from data[] within pixels 0-w
-    var x = d3.scale.linear().domain([0, params.data.length]).range([0, w]);
+    //var x = d3.scale.linear().domain([0, params.data.length]).range([0, w]);
+    var x_scale = [params.x_axis_from];
+    for (var i=0;i<(params.data.length-2);i++){
+        x_scale.push('');
+    }
+    x_scale.push(x_axis_to)
+
+    var x = d3.scale.ordinal().domain(x_scale);
     // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
     var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
     // automatically determining max range can work something like this
@@ -43,7 +50,7 @@ function line(params,yData)
         .call(xAxis);
 
 
-    if(params.show_y){
+    if(params.show_y_axis){
         // create left yAxis
         var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
         // Add the y-axis to the left
