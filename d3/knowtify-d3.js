@@ -51,6 +51,11 @@ function line(params,yData)
         .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
+    graph.append("rect")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("fill", "#f2f2f2");
+
     // create xAxis
     //var xAxis = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
     //var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
