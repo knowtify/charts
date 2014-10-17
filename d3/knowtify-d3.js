@@ -36,12 +36,9 @@ function line(params,yData)
 
     // create a line function that can convert data[] into x and y points
     var line = d3.svg.line()
-        .x(function(d,i) {
-            return x(i);
-        })
-        .y(function(d) {
-            return y(d);
-        })
+    .x(function(d) { return d.x; })
+    .y(function(d) { return d.y; })
+    .interpolate("basis");
 
     // Add an SVG element with the desired dimensions and margin.
     var graph = d3.select("#chart").append("svg:svg")
