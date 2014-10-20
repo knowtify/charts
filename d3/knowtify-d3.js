@@ -105,12 +105,16 @@ function line(params,yData)
     var legend_width = 0;
     for(var i=0;i<params.lines.length;i++){
         var l = params.lines[i];
-        graph.append("svg:path")
+        var line_path = graph.append("svg:path")
             .attr("d", line(l.data))
             .attr("transform", "translate("+m[3]+"," + m[0] + ")")
             .attr("fill","none")
             .attr("stroke-width",l.line_thickness)
             .attr("stroke",l.color);
+
+        if(l.type == "dashed"){
+            line_path.style("stroke-dasharray", ("3, 3"));
+        }
 
 
         var texty = graph.append('text')
