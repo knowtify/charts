@@ -93,12 +93,23 @@ function line(params,yData)
 
     // Add the line by appending an svg:path element with the data line we created above
     // do this AFTER the axes above so that the line is above the tick-lines
+    /*
     graph.append("svg:path")
         .attr("d", line(params.data))
         .attr("transform", "translate("+m[3]+"," + m[0] + ")")
         .attr("fill","none")
         .attr("stroke-width",3)
         .attr("stroke","red");
+    */
+    for(var i=0;i<lines.length;i++){
+        var l = lines[i];
+        graph.append("svg:path")
+            .attr("d", line(l.data))
+            .attr("transform", "translate("+m[3]+"," + m[0] + ")")
+            .attr("fill","none")
+            .attr("stroke-width",l.line_thickness)
+            .attr("stroke",l.color);
+    }
 
 
 }

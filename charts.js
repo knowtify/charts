@@ -31,6 +31,7 @@ exports.line = function (req, res) {
     var json = req.body;
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
     var customData = json.line;
+    var lines = json.lines;
     var filename = json.filename;
     var show_y_axis = (typeof json.show_y_axis != 'undefined' && json.show_y_axis == true) ? true : false;
     var x_axis_labels = (typeof json.x_axis_labels != 'undefined') ? json.x_axis_labels : '[]';
@@ -56,6 +57,7 @@ exports.line = function (req, res) {
             x_axis_color:x_axis_color,
             background_color:background_color,
             data:customData,
+            lines:lines,
             type:chartType,
             filename:filename
         }
@@ -110,6 +112,7 @@ makeChart = function (req, res) {
 
 createChart = function (req,res,chart) {
     var params = {
+        lines:chart.chartData.lines,
         width:chart.chartData.width,
         height:chart.chartData.height,
         show_y_axis:chart.chartData.show_y_axis,
