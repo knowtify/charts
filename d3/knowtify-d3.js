@@ -113,7 +113,7 @@ function line(params,yData)
             .attr("stroke",l.color);
 
         if(l.type == "dashed"){
-            line_path.style("stroke-dasharray", (l.line_thickness+","+l.line_thickness));
+            line_path.style("stroke-dasharray", ((l.line_thickness*2)+","+l.line_thickness));
         }
 
 
