@@ -53,7 +53,7 @@ function line(params,yData)
         .attr("width", w + m[1] + m[3])
         .attr("height", h + m[0] + m[2])
         .attr("transform", "translate(0,0)")
-        .attr("fill", "#f2f2f2");
+        .attr("fill", params.background_color);
         
     /*
     graph.append("svg:g")
