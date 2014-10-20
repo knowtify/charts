@@ -101,8 +101,8 @@ function line(params,yData)
         .attr("stroke-width",3)
         .attr("stroke","red");
     */
-    for(var i=0;i<lines.length;i++){
-        var l = lines[i];
+    for(var i=0;i<params.lines.length;i++){
+        var l = params.lines[i];
         graph.append("svg:path")
             .attr("d", line(l.data))
             .attr("transform", "translate("+m[3]+"," + m[0] + ")")
