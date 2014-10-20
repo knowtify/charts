@@ -3,7 +3,7 @@ function line(params,yData)
     /* implementation heavily influenced by http://bl.ocks.org/1166403 */
 
     // define dimensions of graph
-    var m = [params.margin_left, params.margin_top, params.margin_right, params.margin_bottom]; // margins
+    var m = [params.margin_top, params.margin_right, params.margin_bottom, params.margin_left]; // margins
     var w = params.width - m[1] - m[3]; // width
     var h = params.height - m[0] - m[2]; // height
 
@@ -85,7 +85,7 @@ function line(params,yData)
         // Add the y-axis to the left
         graph.append("svg:g")
             .attr("class", "y axis")
-            .attr("transform", "translate("+(m[0]/1.5)+","+m[3]+")")
+            .attr("transform", "translate("+(m[3]/1.5)+","+m[0]+")")
             .call(yAxisLeft);
     }
 
@@ -93,7 +93,7 @@ function line(params,yData)
     // do this AFTER the axes above so that the line is above the tick-lines
     graph.append("svg:path")
         .attr("d", line(params.data))
-        .attr("transform", "translate("+m[0]+"," + m[3] + ")")
+        .attr("transform", "translate("+m[3]+"," + m[0] + ")")
         .attr("fill","none")
         .attr("stroke-width",3)
         .attr("stroke","red");
