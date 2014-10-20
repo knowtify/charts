@@ -10,8 +10,23 @@ function line(params,yData)
     // create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
     //var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
+    var data_length = 0;
+    var max_y = 0;
+    for(var i=0;i<params.lines.length;i++){
+        var l = params.lines[i];
+        if(l.data.length > data_length){
+            data_length = l.data.length;
+        }
+        for(var ii=0;ii<l.data.length;ii++){
+            var y_val = l.data[ii];
+            if(y_val > max_y){
+                max_y = y_val;
+            }
+        }
+    }
+
     // X scale will fit all values from data[] within pixels 0-w
-    var x = d3.scale.linear().domain([0, params.data.length-1]).range([0, w]);
+    var x = d3.scale.linear().domain([0, data_length-1]).range([0, w]);
     var lineX = x;
     //var x_axis_label = [params.x_axis_from,params.x_axis_to];
     /*
@@ -21,17 +36,6 @@ function line(params,yData)
     x_scale.push(params.x_axis_to)
     */
     //var x = d3.scale.ordinal().domain(x_axis_label).range([0, w]);
-
-    var max_y = 0;
-    for(var i=0;i<params.lines.length;i++){
-        var l = params.lines[i];
-        for(var ii=0;ii<l.data.length;ii++){
-            var y_val = l.data[ii];
-            if(y_val > max_y){
-                max_y = y_val;
-            }
-        }
-    }
 
     /*
     for(var i=0;i<params.data.length;i++){
