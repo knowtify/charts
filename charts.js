@@ -34,6 +34,7 @@ exports.line = function (req, res) {
     var lines = json.lines;
     var filename = json.filename;
     var show_y_axis = (typeof json.show_y_axis != 'undefined' && json.show_y_axis == true) ? true : false;
+    var curved_lines = (typeof json.curved_lines != 'undefined' && json.curved_lines == true) ? true : false;
     var x_axis_labels = (typeof json.x_axis_labels != 'undefined') ? json.x_axis_labels : '[]';
     var margin_top = (typeof json.margin_top != 'undefined') ? json.margin_top : 80;
     var margin_right = (typeof json.margin_right != 'undefined') ? json.margin_right : 80;
@@ -47,6 +48,7 @@ exports.line = function (req, res) {
         chartData:{
             width:json.width,
             height:json.height,
+            curved_lines:curved_lines,
             show_y_axis:show_y_axis,
             x_axis_labels:x_axis_labels,
             margin_top:margin_top,
@@ -124,6 +126,7 @@ createChart = function (req,res,chart) {
         y_axis_color:chart.chartData.y_axis_color,
         x_axis_color:chart.chartData.x_axis_color,
         background_color:chart.chartData.background_color,
+        curved_lines:chart.chartData.curved_lines,
         data:chart.chartData.data
     }
     var customData=chart.chartData.data;

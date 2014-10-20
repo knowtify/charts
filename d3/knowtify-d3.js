@@ -53,6 +53,14 @@ function line(params,yData)
 
     // create a line function that can convert data[] into x and y points
     var line = d3.svg.line()
+        .x(function(d,i) {
+            return lineX(i);
+        })
+        .y(function(d) {
+            return y(d);
+        })
+
+    var curvedLine = d3.svg.line()
         .interpolate("cardinal")
         .x(function(d,i) {
             return lineX(i);
@@ -123,12 +131,22 @@ function line(params,yData)
     for(var i=0;i<params.lines.length;i++){
         var l = params.lines[i];
         lineX = d3.scale.linear().domain([0, l.data.length-1]).range([0, w]);
-        var line_path = graph.append("svg:path")
-            .attr("d", line(l.data))
-            .attr("transform", "translate("+m[3]+"," + m[0] + ")")
-            .attr("fill","none")
-            .attr("stroke-width",l.line_thickness)
-            .attr("stroke",l.color);
+
+        if(params.curved_lines){
+            var line_path = graph.append("svg:path")
+                .attr("d", curvedLine(l.data))
+                .attr("transform", "translate("+m[3]+"," + m[0] + ")")
+                .attr("fill","none")
+                .attr("stroke-width",l.line_thickness)
+                .attr("stroke",l.color);
+        }else{
+            var line_path = graph.append("svg:path")
+                .attr("d", line(l.data))
+                .attr("transform", "translate("+m[3]+"," + m[0] + ")")
+                .attr("fill","none")
+                .attr("stroke-width",l.line_thickness)
+                .attr("stroke",l.color);
+        }
 
         if(l.type == "dashed"){
             line_path.style("stroke-dasharray", (l.line_thickness+","+l.line_thickness));
