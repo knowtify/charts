@@ -116,7 +116,7 @@ function line(params,yData)
         var texty = graph.append('text')
             .attr('fill',l.color)
             .attr("font-weight","bold")
-            .attr("font-size","20px")
+            .attr("font-size","16px")
             .text(l.name);
 
         var texty_width = texty.node().getComputedTextLength();
