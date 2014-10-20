@@ -36,7 +36,7 @@ exports.line = function (req, res) {
     var height = (typeof json.height != 'undefined') ? json.height : 500;
     var show_y_axis = (typeof json.show_y_axis != 'undefined' && json.show_y_axis == true) ? true : false;
     var curved_lines = (typeof json.curved_lines != 'undefined' && json.curved_lines == true) ? true : false;
-    var x_axis_labels = (typeof json.x_axis_labels != 'undefined') ? json.x_axis_labels : '[]';
+    var x_axis_labels = (typeof json.x_axis_labels != 'undefined') ? json.x_axis_labels : '';
     var margin_top = (typeof json.margin_top != 'undefined') ? json.margin_top : 80;
     var margin_right = (typeof json.margin_right != 'undefined') ? json.margin_right : 80;
     var margin_bottom = (typeof json.margin_bottom != 'undefined') ? json.margin_bottom : 80;
