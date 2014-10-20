@@ -50,7 +50,7 @@ function line(params,yData)
     var line = d3.svg.line()
         .interpolate("cardinal")
         .x(function(d,i) {
-            return x(i);
+            return lineX(i);
         })
         .y(function(d) {
             return y(d);
@@ -115,8 +115,10 @@ function line(params,yData)
         .attr("stroke","red");
     */
     var legend_width = 0;
+    var lineX = x;
     for(var i=0;i<params.lines.length;i++){
         var l = params.lines[i];
+        lineX = d3.scale.linear().domain([0, l.data.length-1]).range([0, w]);
         var line_path = graph.append("svg:path")
             .attr("d", line(l.data))
             .attr("transform", "translate("+m[3]+"," + m[0] + ")")
