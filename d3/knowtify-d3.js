@@ -11,7 +11,7 @@ function line(params,yData)
     //var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
     // X scale will fit all values from data[] within pixels 0-w
-    var x = d3.scale.linear().domain([1, params.data.length-1]).range([0, w]);
+    var x = d3.scale.linear().domain([0, params.data.length-1]).range([0, w]);
     //var x_axis_label = [params.x_axis_from,params.x_axis_to];
     /*
     for (var i=0;i<(params.data.length-2);i++){
