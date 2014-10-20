@@ -172,7 +172,7 @@ createChart = function (req,res,chart) {
                             */
                             //req.charts.insert(chartDBData,function(e,o){});
                             //res.redirect(chartDBData.url);
-                            res.json({ chartUrl: 'https://s3.amazonaws.com/knowtify-charts/'+filename });
+                            res.json({ chart_url: 'https://s3.amazonaws.com/knowtify-charts/'+filename });
                             console.log("Successfully uploaded file " + filename);
                         }
                     });
