@@ -3,7 +3,7 @@ function line(params,yData)
     /* implementation heavily influenced by http://bl.ocks.org/1166403 */
 
     // define dimensions of graph
-    var m = [80, 80, 80, 80]; // margins
+    var m = [params.margin_top, params.margin_right, params.margin_bottom, params.margin_left]; // margins
     var w = params.width - m[1] - m[3]; // width
     var h = params.height - m[0] - m[2]; // height
 

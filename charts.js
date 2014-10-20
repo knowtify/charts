@@ -34,6 +34,10 @@ exports.line = function (req, res) {
     var filename = json.filename;
     var show_y_axis = (typeof json.show_y_axis != 'undefined' && json.show_y_axis == true) ? true : false;
     var x_axis_labels = (typeof json.x_axis_labels != 'undefined') ? json.x_axis_labels : '[]';
+    var margin_top = (typeof json.margin_top != 'undefined') ? json.margin_top : 80;
+    var margin_right = (typeof json.margin_right != 'undefined') ? json.margin_right : 80;
+    var margin_bottom = (typeof json.margin_bottom != 'undefined') ? json.margin_bottom : 80;
+    var margin_left = (typeof json.margin_left != 'undefined') ? json.margin_left : 80;
     var chartType="line";
     var chart = {
         chartData:{
@@ -41,6 +45,10 @@ exports.line = function (req, res) {
             height:json.height,
             show_y_axis:show_y_axis,
             x_axis_labels:x_axis_labels,
+            margin_top:margin_top,
+            margin_right:margin_right,
+            margin_bottom:margin_bottom,
+            margin_left:margin_left,
             data:customData,
             type:chartType,
             filename:filename
@@ -100,6 +108,10 @@ createChart = function (req,res,chart) {
         height:chart.chartData.height,
         show_y_axis:chart.chartData.show_y_axis,
         x_axis_labels:chart.chartData.x_axis_labels,
+        margin_top:chart.chartData.margin_top,
+        margin_right:chart.chartData.margin_right,
+        margin_bottom:chart.chartData.margin_bottom,
+        margin_left:chart.chartData.margin_left,
         data:chart.chartData.data
     }
     var customData=chart.chartData.data;
