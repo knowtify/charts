@@ -22,12 +22,24 @@ function line(params,yData)
     //var x = d3.scale.ordinal().domain(x_axis_label).range([0, w]);
 
     var max_y = 0;
+    for(var i=0;i<params.lines.length;i++){
+        var l = params.lines[i];
+        for(var ii=0;ii<l.length;ii++){
+            var y_val = l[ii];
+            if(y_val > max_y){
+                max_y = y_val;
+            }
+        }
+    }
+
+    /*
     for(var i=0;i<params.data.length;i++){
         var y_val = params.data[i];
         if(y_val > max_y){
             max_y = y_val;
         }
     }
+    */
     
     // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
     var y = d3.scale.linear().domain([0, max_y]).range([h, 0]);
