@@ -109,6 +109,11 @@ function line(params,yData)
             .attr("fill","none")
             .attr("stroke-width",l.line_thickness)
             .attr("stroke",l.color);
+
+        graph.append('text')
+            .attr('x', w - 100)
+            .attr('y', (i *  20) + 9)
+            .text(l.name);
     }
 
 
