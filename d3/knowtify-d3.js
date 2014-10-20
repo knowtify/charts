@@ -101,7 +101,7 @@ function line(params,yData)
         .attr("stroke-width",3)
         .attr("stroke","red");
     */
-    var legend_width = 0;
+    var legend_width = m[2];
     for(var i=0;i<params.lines.length;i++){
         var l = params.lines[i];
         graph.append("svg:path")
