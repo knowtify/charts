@@ -64,9 +64,10 @@ function line(params,yData)
     //var xAxis = d3.scale.ordinal().domain(params.x_axis_labels).range([0, w]);
     //var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
 
+    var x_label_width = w-50;
     var xRange = [];
     for(var i=0;i<params.x_axis_labels.length;i++){
-        xRange.push(i*w/(params.x_axis_labels.length-1));
+        xRange.push(i*x_label_width/(params.x_axis_labels.length-1));
     }
 
     var xScale = d3.scale.ordinal().domain(params.x_axis_labels).range(xRange);
@@ -75,7 +76,7 @@ function line(params,yData)
     // Add the x-axis.
     graph.append("svg:g")
         .attr("class", "x axis")
-        .attr("transform", "translate("+m[3]+"," + (h+m[0]) + ")")
+        .attr("transform", "translate("+(m[3]+25)+"," + (h+m[0]) + ")")
         .attr("fill",params.x_axis_color)
         .call(xAxis);
 
