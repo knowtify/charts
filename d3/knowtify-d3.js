@@ -111,8 +111,8 @@ function line(params,yData)
             .attr("stroke",l.color);
 
         graph.append('text')
-            .attr('x', w-(m[1]*(i+1)))
-            .attr('y', h-(m[2]/2))
+            .attr('x', w-(m[1]*i))
+            .attr('y', h+20)
             .attr('fill',l.color)
             .text(l.name);
     }
