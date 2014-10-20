@@ -30,9 +30,10 @@ phantom.create(function (ph) {
 exports.line = function (req, res) {
     var json = req.body;
     //var customData=[3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2];
-    var customData = json.line;
     var lines = json.lines;
     var filename = json.filename;
+    var width = (typeof json.width != 'undefined') ? json.width : 800;
+    var height = (typeof json.height != 'undefined') ? json.height : 500;
     var show_y_axis = (typeof json.show_y_axis != 'undefined' && json.show_y_axis == true) ? true : false;
     var curved_lines = (typeof json.curved_lines != 'undefined' && json.curved_lines == true) ? true : false;
     var x_axis_labels = (typeof json.x_axis_labels != 'undefined') ? json.x_axis_labels : '[]';
@@ -46,8 +47,8 @@ exports.line = function (req, res) {
     var chartType="line";
     var chart = {
         chartData:{
-            width:json.width,
-            height:json.height,
+            width:width,
+            height:height,
             curved_lines:curved_lines,
             show_y_axis:show_y_axis,
             x_axis_labels:x_axis_labels,
@@ -58,7 +59,6 @@ exports.line = function (req, res) {
             y_axis_color:y_axis_color,
             x_axis_color:x_axis_color,
             background_color:background_color,
-            data:customData,
             lines:lines,
             type:chartType,
             filename:filename
