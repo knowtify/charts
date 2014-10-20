@@ -121,7 +121,7 @@ function line(params,yData)
 
         var texty_width = texty.node().getComputedTextLength();
 
-        texty.attr('x', (w+m[3])-legend_width)
+        texty.attr('x', (w+m[3])-legend_width-texty_width)
             .attr('y', m[0]-20);
 
         legend_width = legend_width + texty_width + 30;
