@@ -24,8 +24,8 @@ function line(params,yData)
     var max_y = 0;
     for(var i=0;i<params.lines.length;i++){
         var l = params.lines[i];
-        for(var ii=0;ii<l.length;ii++){
-            var y_val = l[ii];
+        for(var ii=0;ii<l.data.length;ii++){
+            var y_val = l.data[ii];
             if(y_val > max_y){
                 max_y = y_val;
             }
