@@ -12,6 +12,7 @@ function line(params,yData)
 
     // X scale will fit all values from data[] within pixels 0-w
     var x = d3.scale.linear().domain([0, params.data.length-1]).range([0, w]);
+    var lineX = x;
     //var x_axis_label = [params.x_axis_from,params.x_axis_to];
     /*
     for (var i=0;i<(params.data.length-2);i++){
@@ -115,7 +116,6 @@ function line(params,yData)
         .attr("stroke","red");
     */
     var legend_width = 0;
-    var lineX = x;
     for(var i=0;i<params.lines.length;i++){
         var l = params.lines[i];
         lineX = d3.scale.linear().domain([0, l.data.length-1]).range([0, w]);
