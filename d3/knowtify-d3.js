@@ -76,7 +76,7 @@ function line(params,yData)
     graph.append("svg:g")
         .attr("class", "x axis")
         .attr("transform", "translate("+m[3]+"," + (h+m[0]) + ")")
-        .attr("fill","green")
+        .attr("fill",params.x_axis_color)
         .call(xAxis);
 
 
@@ -87,7 +87,7 @@ function line(params,yData)
         graph.append("svg:g")
             .attr("class", "y axis")
             .attr("transform", "translate("+(m[3]/1.5)+","+m[0]+")")
-            .attr("fill","red")
+            .attr("fill",params.y_axis_color)
             .call(yAxisLeft);
     }
 

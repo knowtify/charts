@@ -38,6 +38,8 @@ exports.line = function (req, res) {
     var margin_right = (typeof json.margin_right != 'undefined') ? json.margin_right : 80;
     var margin_bottom = (typeof json.margin_bottom != 'undefined') ? json.margin_bottom : 80;
     var margin_left = (typeof json.margin_left != 'undefined') ? json.margin_left : 80;
+    var y_axis_color = (typeof json.y_axis_color != 'undefined') ? json.y_axis_color : "#aaa";
+    var x_axis_color = (typeof json.x_axis_color != 'undefined') ? json.x_axis_color : "#aaa";
     var chartType="line";
     var chart = {
         chartData:{
@@ -49,6 +51,8 @@ exports.line = function (req, res) {
             margin_right:margin_right,
             margin_bottom:margin_bottom,
             margin_left:margin_left,
+            y_axis_color:y_axis_color,
+            x_axis_color:x_axis_color,
             data:customData,
             type:chartType,
             filename:filename
@@ -112,6 +116,8 @@ createChart = function (req,res,chart) {
         margin_right:chart.chartData.margin_right,
         margin_bottom:chart.chartData.margin_bottom,
         margin_left:chart.chartData.margin_left,
+        y_axis_color:chart.chartData.y_axis_color,
+        x_axis_color:chart.chartData.x_axis_color,
         data:chart.chartData.data
     }
     var customData=chart.chartData.data;
