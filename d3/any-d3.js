@@ -1,3 +1,4 @@
-$.getScript("http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js", function( data, textStatus, jqxhr ) {
+$('body').append(params.chart_selector);
+$.getScript(params.d3_script, function( data, textStatus, jqxhr ) {
   
 });
