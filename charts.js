@@ -30,7 +30,7 @@ phantom.create(function (ph) {
 
 exports.d3 = function (req,res){
     var json = req.body;
-    var filename = json.filename+'.png';
+    var filename = json.filename+'.jpeg';
     var params = json;
     phPage.open("./d3/anyd3shell.html", function (status) {
         phPage.evaluate(function (params) {
@@ -38,10 +38,10 @@ exports.d3 = function (req,res){
             return document.querySelector('#'+json.chart_id).getBoundingClientRect();
         }, function (result) {
             setTimeout(function(){
-                phPage.renderBase64('PNG', function (pic) {
+                phPage.renderBase64('JPEG', function (pic) {
                     var s3bucket = new AWS.S3({params: {Bucket: bucketName}});
                     s3bucket.createBucket(function() {
-                        var data = {ACL: 'public-read',ContentType:"image/png",Key: filename, Body: new Buffer(pic, 'base64')};
+                        var data = {ACL: 'public-read',ContentType:"jpeg",Key: filename, Body: new Buffer(pic, 'base64')};
                         s3bucket.putObject(data, function(err, data) {
                             if (err) {
                                 res.error("error producing image");
