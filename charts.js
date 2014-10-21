@@ -34,6 +34,7 @@ exports.d3 = function (req,res){
     var params = json;
     phPage.open("./d3/anyd3shell.html", function (status) {
         phPage.evaluate(function (params) {
+            plot(params);
             return document.querySelector(json.chart_selector).getBoundingClientRect();
         }, function (result) {
             phPage.renderBase64('PNG', function (pic) {
