@@ -33,7 +33,7 @@ exports.d3 = function (req,res){
     var filename = json.filename+'.png';
     var params = json;
     phPage.open("./d3/anyd3shell.html", function (status) {
-        window.setTimeout(function(){
+        setTimeout(function(){
             phPage.evaluate(function (params) {
                 plot(params);
                 return document.querySelector('#'+json.chart_id).getBoundingClientRect();
