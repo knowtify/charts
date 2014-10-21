@@ -33,7 +33,7 @@ exports.d3 = function (req,res){
     var filename = 'd3.png';
     var params = {};
     phPage.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
-        //phPage.includeJS('https://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
+        phPage.includeJS('http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
             phPage.open("./d3/d3shell.html", function (status) {
                 phPage.evaluate(function (params,cType) {
                     phPage.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
@@ -61,7 +61,7 @@ exports.d3 = function (req,res){
                     });
                 },params);
             });
-        //});
+        });
     });
 }
 
