@@ -35,7 +35,7 @@ exports.d3 = function (req,res){
     phPage.open("./d3/anyd3shell.html", function (status) {
         phPage.evaluate(function (params) {
             plot(params);
-            return document.querySelector(json.chart_selector).getBoundingClientRect();
+            return document.querySelector('#'+json.chart_id).getBoundingClientRect();
         }, function (result) {
             phPage.renderBase64('PNG', function (pic) {
                 var s3bucket = new AWS.S3({params: {Bucket: bucketName}});
