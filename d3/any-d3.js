@@ -6,7 +6,8 @@ function plot(params){
 	});
 	*/
 	//http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js
-	$.getScript('http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js', function( data, textStatus, jqxhr ) {
-	  
-	});
+	setTimeout(function(){
+		$.getScript(params.d3_script, function( data, textStatus, jqxhr ) {
+	  	});
+	},500);
 }
