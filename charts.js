@@ -56,7 +56,7 @@ exports.d3 = function (req,res){
 
 
             });
-        },params,chartType);
+        },params);
 
     });
 }
