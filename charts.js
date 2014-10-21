@@ -30,6 +30,7 @@ phantom.create(function (ph) {
 exports.d3 = function (req,res){
     var json = req.body;
     var filename = 'd3.png';
+    var params = {};
     phPage.open("./d3/d3shell.html", function (status) {
         phPage.evaluate(function (params,cType) {
             phPage.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
