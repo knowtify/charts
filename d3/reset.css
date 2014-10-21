@@ -1,0 +1,11 @@
+body {
+	margin:0;
+	padding:0;
+}
+
+svg,
+circle,
+rect,
+path {
+	shape-rendering: crispEdges;
+}
