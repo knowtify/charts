@@ -7,5 +7,5 @@ svg,
 circle,
 rect,
 path {
-	shape-rendering: auto;
+	shape-rendering: geometricPrecision;
 }
