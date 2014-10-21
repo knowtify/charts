@@ -32,7 +32,7 @@ exports.d3 = function (req,res){
     var json = req.body;
     var filename = 'd3.png';
     var params = {};
-    phPage.open("./d3/d3-jquery-shell.html", function (status) {
+    phPage.open("./d3/anyd3shell.html", function (status) {
         //phPage.includeJS('http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
             phPage.evaluate(function (params) {
                 return document.querySelector("#pie").getBoundingClientRect();
