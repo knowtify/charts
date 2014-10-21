@@ -54,6 +54,9 @@ app.get('/line', charts.line);
 app.post('/line', jsonParser, function(req, res){
     charts.line(req,res);
 });
+app.post('/d3', jsonParser, function(req, res){
+    charts.d3(req,res);
+});
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function () {
