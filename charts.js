@@ -27,6 +27,7 @@ phantom.create(function (ph) {
     }
 }); 
 
+/*
 exports.d3 = function (req,res){
     var json = req.body;
     var filename = 'd3.png';
@@ -63,6 +64,7 @@ exports.d3 = function (req,res){
         });
     });
 }
+*/
 
 exports.line = function (req, res) {
     var json = req.body;
