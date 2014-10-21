@@ -53,7 +53,7 @@ exports.d3 = function (req,res){
                         });
                     });
                 });
-            },3000);
+            },1500);
         },params);
     });
 }
