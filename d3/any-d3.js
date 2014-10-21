@@ -8,7 +8,7 @@ function plot(params){
 	    async:false,
 	    type:'GET',
 	    url:params.d3_script,
-	    data:null
+	    data:null,
 	    dataType:'script'
 	});
 }
