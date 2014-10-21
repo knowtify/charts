@@ -33,8 +33,8 @@ exports.d3 = function (req,res){
     var filename = 'd3.png';
     var params = {};
     phPage.open("./d3/d3-jquery-shell.html", function (status) {
-        phPage.includeJS('http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
-            phPage.evaluate(function (params,cType) {
+        //phPage.includeJS('http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
+            phPage.evaluate(function (params) {
                 return document.querySelector("#chart").getBoundingClientRect();
             }, function (result) {
                 phPage.renderBase64('PNG', function (pic) {
@@ -55,7 +55,7 @@ exports.d3 = function (req,res){
 
                 });
             },params);
-        });
+        //});
     });
 }
 
