@@ -35,7 +35,7 @@ exports.d3 = function (req,res){
     phPage.open("./d3/d3-jquery-shell.html", function (status) {
         //phPage.includeJS('http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
             phPage.evaluate(function (params) {
-                return document.querySelector("#chart").getBoundingClientRect();
+                return document.querySelector("#pie").getBoundingClientRect();
             }, function (result) {
                 phPage.renderBase64('PNG', function (pic) {
                     var s3bucket = new AWS.S3({params: {Bucket: bucketName}});
