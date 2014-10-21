@@ -32,32 +32,30 @@ exports.d3 = function (req,res){
     var json = req.body;
     var filename = 'd3.png';
     var params = {};
-    phPage.open("./d3/d3shell.html", function (status) {
-        phPage.evaluate(function (params,cType) {
-            phPage.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
-              phPage.includeJS('https://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
+    phPage.open("./d3/d3-jquery-shell.html", function (status) {
+        phPage.includeJS('http://s3.amazonaws.com/js.knowtify.io/js/demo/sunburst.js',function(){
+            phPage.evaluate(function (params,cType) {
                 return document.querySelector("#chart").getBoundingClientRect();
-              });
-            });
-        }, function (result) {
-            phPage.renderBase64('PNG', function (pic) {
-                var s3bucket = new AWS.S3({params: {Bucket: bucketName}});
-                s3bucket.createBucket(function() {
-                    var data = {ACL: 'public-read',ContentType:"image/png",Key: filename, Body: new Buffer(pic, 'base64')};
-                    s3bucket.putObject(data, function(err, data) {
-                        if (err) {
-                            res.error("error producing image");
-                            console.log("Error uploading data: ", err);
-                        } else {
-                            res.json({ chart_url: 'https://s3.amazonaws.com/knowtify-charts/d3.png' });
-                            console.log("Successfully uploaded file d3.js");
-                        }
+            }, function (result) {
+                phPage.renderBase64('PNG', function (pic) {
+                    var s3bucket = new AWS.S3({params: {Bucket: bucketName}});
+                    s3bucket.createBucket(function() {
+                        var data = {ACL: 'public-read',ContentType:"image/png",Key: filename, Body: new Buffer(pic, 'base64')};
+                        s3bucket.putObject(data, function(err, data) {
+                            if (err) {
+                                res.error("error producing image");
+                                console.log("Error uploading data: ", err);
+                            } else {
+                                res.json({ chart_url: 'https://s3.amazonaws.com/knowtify-charts/d3.png' });
+                                console.log("Successfully uploaded file d3.js");
+                            }
+                        });
                     });
+
+
                 });
-
-
-            });
-        },params);
+            },params);
+        });
     });
 }
 
