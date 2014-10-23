@@ -25,8 +25,7 @@ phantom.create(function (ph) {
     dnodeOpts: {
         weak: false
     }
-}); 
-
+});
 
 exports.d3 = function (req,res){
     var json = req.body;
